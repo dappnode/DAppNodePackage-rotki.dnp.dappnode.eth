@@ -1,7 +1,7 @@
 version: "3.5"
 services:
   rotki.dnp.dappnode.eth:
-    image: rotki.dnp.dappnode.eth:0.1.0
+    image: rotki.dnp.dappnode.eth:0.1.29
     build:
       context: .
       args:
@@ -13,6 +13,8 @@ services:
       ROTKI_ACCEPT_DOCKER_RISK: 1
       LOGLEVEL: info
     restart: unless-stopped
+    security_opt:
+      - seccomp:unconfined
 volumes:
   rotki_data: {}
   rotki_logs: {}
